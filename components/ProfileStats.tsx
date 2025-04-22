@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   flagContainer: {
     width: 32,
     height: 24,
-    backgroundColor: '#2B67C4',
+    backgroundColor: '#E0363A',
     borderRadius: 2,
     marginBottom: 8,
     overflow: 'hidden',

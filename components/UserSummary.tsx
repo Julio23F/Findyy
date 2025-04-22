@@ -17,40 +17,19 @@ export default function UserSummary({ streakDays, xpPoints, division, languageSc
       
       <View style={styles.statsContainer}>
         <View style={styles.statCard}>
-          <View style={styles.iconContainer}>
-            <Flame size={24} color="#E0E0E0" />
+          <Flame size={24} color="#E0E0E0" />
+          <View style={styles.statsDescription}>
+            <Text style={styles.statValue}>{streakDays}</Text>
+            <Text style={styles.statLabel}>Jour d'activité</Text>
           </View>
-          <Text style={styles.statValue}>{streakDays}</Text>
-          <Text style={styles.statLabel}>Jour d'activité</Text>
         </View>
         
         <View style={styles.statCard}>
-          <View style={[styles.iconContainer, { backgroundColor: '#FFF3C2' }]}>
-            <Zap size={24} color="#FFD700" />
+          <Zap size={24} color="#FFD700" />
+          <View style={[styles.statsDescription]}>
+            <Text style={styles.statValue}>{xpPoints}</Text>
+            <Text style={styles.statLabel}>XP gagnés</Text>
           </View>
-          <Text style={styles.statValue}>{xpPoints}</Text>
-          <Text style={styles.statLabel}>XP gagnés</Text>
-        </View>
-        
-        <View style={styles.statCard}>
-          <View style={[styles.iconContainer, { backgroundColor: '#FFF3C2' }]}>
-            <Trophy size={24} color="#FFD700" />
-          </View>
-          <Text style={styles.statValue}>{division}</Text>
-          <Text style={styles.statLabel}>Division actuelle</Text>
-        </View>
-        
-        <View style={styles.statCard}>
-          <View style={styles.flagContainer}>
-            <Flag size={20} color="#f5593d" style={styles.flag} />
-            <View style={styles.flagStripes}>
-              <View style={styles.stripe} />
-              <View style={styles.stripe} />
-              <View style={styles.stripe} />
-            </View>
-          </View>
-          <Text style={styles.statValue}>{languageScore}</Text>
-          <Text style={styles.statLabel}>Score en anglais</Text>
         </View>
       </View>
     </View>
@@ -88,15 +67,21 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 1.41,
     elevation: 1,
+    display: "flex",
+    flexDirection: "row",
+
+    borderWidth: 1,
+    borderColor: '#f9f9f9',
   },
-  iconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: '#F5F5F5',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 8,
+  statsDescription: {
+    marginLeft: 15,
+    // width: 48,
+    // height: 48,
+    // borderRadius: 24,
+    // backgroundColor: '#F5F5F5',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // marginBottom: 8,
   },
   statValue: {
     fontFamily: 'Inter-Bold',
