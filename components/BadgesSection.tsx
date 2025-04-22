@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   badgesContainer: {
     backgroundColor: 'white',
-    borderRadius: 8,
+    borderRadius: 15,
     padding: 16,
     shadowColor: '#000',
     // shadowOffset: {
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     // shadowOpacity: 0.1,
     // shadowRadius: 1.41,
     // elevation: 1,
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: '#e8e8e8',
   },
   badgeRow: {

@@ -17,7 +17,7 @@ export default function UserSummary({ streakDays, xpPoints, division, languageSc
       
       <View style={styles.statsContainer}>
         <View style={styles.statCard}>
-          <Flame size={24} color="#E0E0E0" />
+          <Flame size={24} color="#E0E0E0" style={styles.iconStats}/>
           <View style={styles.statsDescription}>
             <Text style={styles.statValue}>{streakDays}</Text>
             <Text style={styles.statLabel}>Jour d'activité</Text>
@@ -25,10 +25,10 @@ export default function UserSummary({ streakDays, xpPoints, division, languageSc
         </View>
         
         <View style={styles.statCard}>
-          <Zap size={24} color="#FFD700" />
+          <Zap size={24} color="#FFD700" style={styles.iconStats}/>
           <View style={[styles.statsDescription]}>
             <Text style={styles.statValue}>{xpPoints}</Text>
-            <Text style={styles.statLabel}>XP gagnés</Text>
+            <Text style={styles.statLabel}>crédits restants</Text>
           </View>
         </View>
       </View>
@@ -54,11 +54,12 @@ const styles = StyleSheet.create({
   },
   statCard: {
     backgroundColor: 'white',
-    borderRadius: 8,
-    padding: 16,
+    borderRadius: 15,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
     marginBottom: 16,
     width: '48%',
-    alignItems: 'center',
+    alignItems: "flex-start",
     // shadowColor: '#000',
     // shadowOffset: {
     //   width: 0,
@@ -70,11 +71,15 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
 
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: '#e8e8e8',
   },
+  iconStats: {
+    marginTop: 8
+  },
   statsDescription: {
-    marginLeft: 15,
+    marginLeft: 12,
+    // backgroundColor: "blue"
     // width: 48,
     // height: 48,
     // borderRadius: 24,
