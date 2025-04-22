@@ -59,19 +59,19 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     width: '48%',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 1.41,
-    elevation: 1,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 1,
+    // },
+    // shadowOpacity: 0.1,
+    // shadowRadius: 1.41,
+    // elevation: 1,
     display: "flex",
     flexDirection: "row",
 
     borderWidth: 1,
-    borderColor: '#f9f9f9',
+    borderColor: '#e8e8e8',
   },
   statsDescription: {
     marginLeft: 15,

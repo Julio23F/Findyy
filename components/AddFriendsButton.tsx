@@ -5,13 +5,14 @@ import { Share, UserPlus } from 'lucide-react-native';
 export default function AddFriendsButton() {
   return (
     <View style={styles.container}>
+      {/* <TouchableOpacity style={styles.addButton} activeOpacity={0.8}> </TouchableOpacity>*/}
       <Pressable
         style={({ pressed }) => [
           styles.addButton,
           pressed && styles.buttonPressed,
         ]}
       >
-        <UserPlus size={20} color="#4A9EF7" strokeWidth={3} />
+        <UserPlus size={20} color="#0ea9f9" strokeWidth={3} />
         <Text style={styles.addButtonText}>AJOUTER DES AMIS</Text>
       </Pressable>
 
@@ -21,7 +22,7 @@ export default function AddFriendsButton() {
           pressed && styles.buttonPressed,
         ]}
       >
-        <Share size={20} color="#4A9EF7" strokeWidth={3} />
+        <Share size={20} color="#0ea9f9" strokeWidth={3} />
       </Pressable>
     </View>
   );
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 1,
     },
-    shadowOpacity: 0.1,
+    shadowOpacity: 1,
     shadowRadius: 1.41,
     elevation: 2,
 
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   addButtonText: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 15,
-    color: '#4A9EF7',
+    color: '#0ea9f9',
     marginLeft: 8,
     fontWeight: 'bold',
   },
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0,
     elevation: 0,
     borderBottomWidth: 2,
-    borderBottomColor: '#4A9EF7',
+    borderBottomColor: '#0ea9f9',
     transform: [{ translateY: 2 }],
   },
 });

@@ -59,20 +59,22 @@ const styles = StyleSheet.create({
   viewAllText: {
     fontFamily: 'Inter-Medium',
     fontSize: 14,
-    color: '#4A9EF7',
+    color: '#0ea9f9',
   },
   badgesContainer: {
     backgroundColor: 'white',
     borderRadius: 8,
     padding: 16,
     shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 1.41,
-    elevation: 1,
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 1,
+    // },
+    // shadowOpacity: 0.1,
+    // shadowRadius: 1.41,
+    // elevation: 1,
+    borderWidth: 1,
+    borderColor: '#e8e8e8',
   },
   badgeRow: {
     flexDirection: 'row',
@@ -89,7 +91,7 @@ const styles = StyleSheet.create({
   },
   activeBadge: {
     borderWidth: 2,
-    borderColor: '#4A9EF7',
+    borderColor: '#0ea9f9',
     backgroundColor: 'white',
   },
 });
