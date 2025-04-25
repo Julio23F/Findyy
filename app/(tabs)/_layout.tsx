@@ -3,9 +3,9 @@ import React from 'react';
 import { Platform } from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
-import { Colors } from '@/constants/Colors';
+import { colors } from '@/constants/colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { MessageCircle, User } from 'lucide-react-native';
+import { Map, User } from 'lucide-react-native';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -13,7 +13,7 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarStyle: Platform.select({
@@ -24,19 +24,20 @@ export default function TabLayout() {
         }),
       }}>
       <Tabs.Screen
-        name="profile"
+        name="index"
         options={{
-          title: 'Profile',
-          tabBarIcon: ({ size, color }) => <MessageCircle size={size} color={color} />,
+          title: 'Map',
+          tabBarIcon: ({ size, color }) => <Map size={size} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="index"
+        name="profile"
         options={{
-          title: 'Home',
+          title: 'Profile',
           tabBarIcon: ({ size, color }) => <User size={size} color={color} />,
         }}
       />
+      
     </Tabs>
   );
 }
