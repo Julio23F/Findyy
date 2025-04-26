@@ -5,22 +5,21 @@ import * as Location from 'expo-location';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { SlidersHorizontal } from 'lucide-react-native';
+import { SlidersHorizontal, X } from 'lucide-react-native';
 
-import MapControls from '@/components/map/MapControls';
 import ActionButtons from '@/components/map/ActionButtons';
 import UserMarker from '@/components/map/UserMarker';
 import PlaceMarker from '@/components/map/PlaceMarker';
 import ContactMarker from '@/components/map/ContactMarker';
 import FilterUser from '@/components/ui/FilterUser';
 import { getDummyContacts, getDummyPlaces } from '@/utils/dummyData';
-import { colors, X } from '@/constants/colors';
+import { colors } from '@/constants/colors';
 
 export default function HomeScreen() {
   const mapRef = useRef(null);
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
-  const [showFilterUser, setShowFilterUser] = useState(false); // ← initialisé à false
+  const [showFilterUser, setShowFilterUser] = useState(false);
 
   const contacts = getDummyContacts();
   const places = getDummyPlaces();
@@ -95,13 +94,13 @@ export default function HomeScreen() {
       <View style={styles.controlsContainer}>
         <TouchableOpacity 
           style={styles.controlButton} 
-          onPress={() => setShowFilterUser(true)}
+          onPress={() => setShowFilterUser(!showFilterUser)}
         >
         {
           showFilterUser ? (
-            <SlidersHorizontal size={20} color={colors.textPrimary} />
-          ) : (
             <X size={20} color={colors.textPrimary} />
+          ) : (
+            <SlidersHorizontal size={20} color={colors.textPrimary} />
           )
         }
 
@@ -150,7 +149,7 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+    // borderBottomWidth: 1,
+    // borderBottomColor: '#f0f0f0',
   },
 });
