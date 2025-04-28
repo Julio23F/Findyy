@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, StyleSheet, Text, Platform, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, Platform, TouchableOpacity, NativeModules, NativeEventEmitter, Alert } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import * as Location from 'expo-location';
 import { StatusBar } from 'expo-status-bar';
@@ -14,6 +14,12 @@ import ContactMarker from '@/components/map/ContactMarker';
 import FilterUser from '@/components/ui/FilterUser';
 import { getDummyContacts, getDummyPlaces } from '@/utils/dummyData';
 import { colors } from '@/constants/colors';
+
+
+
+const { VolumeButtonListener } = NativeModules;
+const volumeEventEmitter = new NativeEventEmitter(VolumeButtonListener);
+
 
 export default function HomeScreen() {
   const mapRef = useRef(null);
@@ -35,6 +41,27 @@ export default function HomeScreen() {
       let location = await Location.getCurrentPositionAsync({});
       setLocation(location);
     })();
+  }, []);
+
+  useEffect(() => {
+    VolumeButtonListener.startListening();
+
+    const upListener = volumeEventEmitter.addListener('VolumeUpPressed', () => {
+      console.log('Volume + Pressed');
+      Alert.alert('Volume + Pressed');
+    });
+
+    const downListener = volumeEventEmitter.addListener('VolumeDownPressed', () => {
+      console.log('Volume - Pressed');
+      Alert.alert('Volume - Pressed');
+
+    });
+
+    return () => {
+      VolumeButtonListener.stopListening();
+      upListener.remove();
+      downListener.remove();
+    };
   }, []);
 
   const initialRegion = {
